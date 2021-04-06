@@ -6,14 +6,12 @@ import { api } from "./AxiosService.js";
 class CarsService {
   async getCars() {
     let res = await api.get('cars')
-    console.log(res.data)
     ProxyState.cars = res.data.map(c => new Car(c))
   }
 
   async createCar(newCar) {
     // NOTE post creates data in the server, the first argument to extend the url the second is the data to send
     let res = await api.post('cars', newCar)
-    console.log(res.data)
 
 
     // the lazy way
